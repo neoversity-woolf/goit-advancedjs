@@ -1,11 +1,11 @@
 {
-  "name": "hw-01",
+  "name": "goit-advanced-js",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/hw-01/",
+    "build": "vite build --base=/neoversity-woolf/goit-advancedjs/",
     "preview": "vite preview"
   },
   "devDependencies": {
