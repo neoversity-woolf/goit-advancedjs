@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/neoversity-woolf/goit-advancedjs/",
+    "build": "vite build --base=/goit-advancedjs/",
     "preview": "vite preview"
   },
   "devDependencies": {
