@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400|Poppins:300,400,800&display=swap');
-/* @import url('https://raw.githubusercontent.com/elad2412/the-new-css-reset/main/css/reset.css'); */
 
 * {
   margin: 0;
@@ -298,8 +297,17 @@ a {
     align-items: center;
     justify-content: center;
     gap: 1.25rem;
+
     &:not(:last-child) {
       margin-block-end: 1rem;
+    }
+
+    &.disabled {
+      pointer-events: none;
+    }
+
+    &.disabled::before {
+      filter: grayscale(1);
     }
 
     &::before {
@@ -326,6 +334,10 @@ a {
     align-items: center;
     padding: 0.25rem 0.75rem;
     color: rgb(255, 181, 16);
+
+    .homeworks-item.disabled & {
+      filter: grayscale(1);
+    }
 
     &::after {
       position: absolute;
