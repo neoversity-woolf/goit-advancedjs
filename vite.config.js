@@ -1,7 +1,25 @@
 import { defineConfig } from 'vite';
-import glob from 'glob';
+import { resolve } from 'path';
+import fs from 'fs';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
+
+// Get all path to pages folder
+function getPages(directory, pages = {}) {
+  console.log(directory);
+  const items = fs.readdirSync(directory);
+
+  items.forEach(item => {
+    const itemPath = resolve(directory, item);
+    if (fs.statSync(itemPath).isDirectory()) {
+      getPages(itemPath, pages);
+    } else if (item.endsWith('.html')) {
+      const name = item.replace('.html', '');
+      pages[name] = itemPath;
+    }
+  });
+  return pages;
+}
 
 export default defineConfig(({ command }) => {
   return {
@@ -10,10 +28,11 @@ export default defineConfig(({ command }) => {
     },
     root: 'src',
     build: {
-      sourcemap: true,
-
       rollupOptions: {
-        input: glob.sync('./src/*.html'),
+        input: {
+          main: resolve(__dirname, 'src/index.html'),
+          ...getPages(resolve(__dirname, 'src/pages')),
+        },
         output: {
           manualChunks(id) {
             if (id.includes('node_modules')) {
