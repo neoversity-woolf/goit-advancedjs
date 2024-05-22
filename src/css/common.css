@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400|Poppins:300,400,800&display=swap');
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -26,6 +27,10 @@ img {
 }
 a {
   color: currentColor;
+}
+button {
+  font-family: inherit;
+  cursor: pointer;
 }
 /* #region */
 
@@ -157,6 +162,12 @@ a {
   padding: 0.5rem 1.5rem;
   border: 0.0625rem solid rgb(255, 181, 16);
   border-radius: 0.5rem;
+  transition: 200ms ease-in;
+
+  &:hover,
+  &:focus {
+    background-color: rgb(255, 181, 16);
+  }
 }
 .list {
   display: flex;
@@ -372,7 +383,153 @@ a {
   }
 }
 /* #endregion */
+/* #region HW-01-TASK-02*/
 #vimeo-player {
   display: block;
   margin-inline: auto;
 }
+/* #endregion */
+/* #region HW-02-TASK-01*/
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+
+  button {
+    padding: 0.5rem 1.5rem;
+    color: currentColor;
+    background-color: rgb(255, 181, 16);
+    border: 0.0625rem solid transparent;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 200ms ease-in;
+
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
+      background-color: transparent;
+      border: 0.0625rem solid rgb(255, 181, 16);
+    }
+
+    &:disabled {
+      filter: grayscale(1);
+      cursor: not-allowed;
+    }
+  }
+}
+/* #endregion */
+/* #region HW-02-TASK-02*/
+.date-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  .flatpickr-input {
+    padding: 0.5rem 1rem;
+    font-family: inherit;
+    font-size: 1.25rem;
+    text-align: center;
+    border: 1px solid rgb(255, 181, 16);
+    border-radius: 0.5rem;
+    outline: transparent;
+  }
+
+  button {
+    padding: 0.5rem 1.5rem;
+    font-size: 1.25rem;
+    color: currentColor;
+    background-color: rgb(255, 181, 16);
+    border: 0.0625rem solid transparent;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 200ms ease-in;
+
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
+      background-color: transparent;
+      border: 0.0625rem solid rgb(255, 181, 16);
+    }
+
+    &:disabled {
+      filter: grayscale(1);
+      cursor: not-allowed;
+    }
+  }
+}
+.flatpickr-day.selected {
+  background-color: rgb(255, 181, 16) !important;
+  border-color: rgb(255, 181, 16) !important;
+}
+.timer {
+  display: grid;
+  grid-template-columns: repeat(4, 4rem);
+  gap: 1rem;
+  justify-content: center;
+  text-align: center;
+
+  .value {
+    display: block;
+    padding-block: 0.5rem;
+    font-size: 1.75rem;
+    border: 1px solid rgb(255, 181, 16);
+    border-radius: 0.5rem;
+  }
+}
+/* #endregion */
+/* #region HW-02-TASK-03*/
+#promises {
+  .form {
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 16rem);
+    grid-template-rows: repeat(2, 1fr);
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: 200ms ease-in;
+
+    &:focus-within {
+      color: rgb(255, 181, 16);
+    }
+  }
+  input[type='number'] {
+    padding: 0.5rem 1rem;
+    font-family: inherit;
+    font-size: 1.25rem;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 181, 16);
+    border-radius: 0.5rem;
+    background-color: transparent;
+    outline: transparent;
+    transition: 200ms ease-in;
+
+    &:not(:placeholder-shown):invalid:focus {
+      border-color: red;
+    }
+  }
+
+  button[type='submit'] {
+    align-self: center;
+    grid-column-start: 2;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    border: 1px solid rgb(255, 181, 16);
+    border-radius: 0.5rem;
+    transition: 200ms ease-in;
+
+    &:hover {
+      background-color: rgb(255, 181, 16);
+    }
+  }
+}
+/* #endregion */
