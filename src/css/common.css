@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400|Poppins:300,400,800&display=swap');
+@import url('./loader.css');
 
 * {
   box-sizing: border-box;
@@ -532,5 +533,10 @@ button {
       background-color: rgb(255, 181, 16);
     }
   }
+}
+/* #endregion */
+/* #region HW-03*/
+:root {
+  --ss-primary-color: rgb(255, 181, 16) !important;
 }
 /* #endregion */

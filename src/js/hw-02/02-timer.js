@@ -24,8 +24,11 @@ flatpickr(refs.input, {
 
     if (currentDate >= selectedDate) {
       iziToast.info(toastOptions.caution);
+      refs.startBtn.disabled = true;
       return;
     }
+
+    refs.startBtn.disabled = false;
   },
 });
 
@@ -35,7 +38,7 @@ const updateTimer = (timerInterval, btnStart) => {
 
   if (timeDifference < 0) {
     clearInterval(timerInterval);
-    btnStart.disabled = false;
+    refs.input.disabled = false;
     iziToast.success(toastOptions.valid);
     return;
   }
@@ -62,6 +65,7 @@ refs.startBtn.addEventListener('click', event => {
 
   const btnStart = event.currentTarget;
   btnStart.disabled = true;
+  refs.input.disabled = true;
 
   const timerInterval = setInterval(() => {
     updateTimer(timerInterval, btnStart);

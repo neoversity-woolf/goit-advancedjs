@@ -22,9 +22,10 @@ const onFormSubmit = event => {
   const form = event.currentTarget;
   const { delay, step, amount } = form.elements;
 
-  for (let i = 1; i <= +amount.value; i += 1) {
+  for (let i = 0; i < +amount.value; i += 1) {
     const timeout = +delay.value + +step.value * i;
-    createPromise(i, timeout)
+    const position = i + 1;
+    createPromise(position, timeout)
       .then(({ position, delay }) => {
         console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
         iziToast.success({
