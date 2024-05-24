@@ -4,16 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Advanced JS Homework 03</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="../../css/common.css" />
   </head>
   <body>
+    <a class="go-back" href="../../index.html">Go back</a>
+
     <select class="breed-select"></select>
     <div class="cat-info"></div>
 
     <div class="backdrop">
-      <p class="loader cats-loader"></p>
+      <img
+        class="cats-loader"
+        src="https://i.giphy.com/qgJRa0hrejLxu.webp"
+        alt="Giphy"
+        width="480"
+        height="480"
+        loading="lazy"
+      />
     </div>
-    <p class="error">Oops! Something went wrong! Try reloading the page!</p>
+
+    <div class="error-msg"></div>
+
     <script src="../../js/hw-03/index.js" type="module"></script>
   </body>
 </html>
