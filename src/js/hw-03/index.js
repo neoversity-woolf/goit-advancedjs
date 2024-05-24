@@ -8,7 +8,7 @@ const refs = {
   cardWrapper: document.querySelector('.cat-info'),
   backdrop: document.querySelector('.backdrop'),
 };
-const createPptionsMarkup = data => {
+const createOptionsMarkup = data => {
   return data.reduce((markup, { name, id }) => {
     return (markup += `<option value="${id}">${name}</option>`);
   }, '');
@@ -20,12 +20,15 @@ const onSelectChange = async event => {
   console.log('onSelectChange  response:', catInfo);
 };
 
-const breeds = await fetchBreeds();
-refs.backdrop.classList.toggle('is-hidden');
-const optionsMarkup = await createPptionsMarkup(breeds);
-refs.select.innerHTML = optionsMarkup;
-new SlimSelect({
-  select: 'select.breed-select',
-});
+const initBreeds = async () => {
+  const breeds = await fetchBreeds();
+  refs.backdrop.classList.toggle('is-hidden');
+  const optionsMarkup = await createOptionsMarkup(breeds);
+  refs.select.innerHTML = optionsMarkup;
+  new SlimSelect({
+    select: 'select.breed-select',
+  });
+};
 
+initBreeds();
 refs.select.addEventListener('change', onSelectChange);
