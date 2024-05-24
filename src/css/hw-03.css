@@ -55,6 +55,7 @@
   align-items: center;
   gap: 4rem;
   width: fit-content;
+  margin-inline: auto;
   outline: 1px solid rgb(255, 181, 16);
   outline-offset: 0.25rem;
   border-radius: 0.5rem;
