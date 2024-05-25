@@ -1,6 +1,9 @@
 import { fetchBreeds, fetchCatByBreed } from './cats-api.js';
+import { showErrorMsg, errorNotificationOptions } from './error-handler.js';
 import SlimSelect from 'slim-select';
+import iziToast from 'izitoast';
 
+import 'izitoast/dist/css/iziToast.min.css';
 import 'slim-select/styles';
 
 export const refs = {
@@ -35,13 +38,23 @@ const createCatMarkup = ({ breeds, url }) => {
     </div>
   </article>`;
 };
-const onSelectChange = async event => {
-  const selectedOptionValue = event.currentTarget.value;
-  refs.backdrop.classList.toggle('is-hidden');
-  const response = await fetchCatByBreed(selectedOptionValue);
-  const catInfo = response[0];
-  refs.cardWrapper.innerHTML = createCatMarkup(catInfo);
-  refs.backdrop.classList.toggle('is-hidden');
+const onSelectChange = async selectData => {
+  try {
+    refs.cardWrapper.innerHTML = '';
+    refs.errorMsg.innerHTML = '';
+    const { value } = selectData[0];
+    refs.backdrop.classList.toggle('is-hidden');
+    const response = await fetchCatByBreed(value);
+    if (!response) return;
+    const catInfo = response[0];
+    refs.cardWrapper.innerHTML = createCatMarkup(catInfo);
+  } catch (error) {
+    iziToast.error(errorNotificationOptions);
+    setTimeout(showErrorMsg, 1000);
+    console.log(error);
+  } finally {
+    refs.backdrop.classList.toggle('is-hidden');
+  }
 };
 const initBreeds = async () => {
   const breeds = await fetchBreeds();
@@ -58,8 +71,12 @@ const initBreeds = async () => {
     settings: {
       placeholderText: 'Select the cat breed',
     },
+    events: {
+      afterChange: info => {
+        onSelectChange(info);
+      },
+    },
   });
 };
 
 initBreeds();
-refs.select.addEventListener('change', onSelectChange);
