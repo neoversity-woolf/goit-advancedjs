@@ -10,15 +10,21 @@
   },
   "devDependencies": {
     "glob": "^8.1.0",
+    "sass": "^1.77.2",
     "vite": "^4.5.3"
   },
   "author": "YK <yaroslavkosytsia@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
     "@vimeo/player": "^2.23.0",
+    "axios": "^1.7.2",
+    "bootstrap": "^5.3.3",
     "flatpickr": "^4.6.13",
+    "imagesloaded": "^5.0.0",
     "izitoast": "^1.4.0",
     "lodash.throttle": "^4.1.1",
+    "masonry-layout": "^4.2.2",
     "simplelightbox": "^2.14.3",
     "slim-select": "^2.8.2",
     "the-new-css-reset": "^1.11.2",

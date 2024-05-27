@@ -4,6 +4,123 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Advanced JS Homework 04</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
-  <body></body>
+  <body class="pb-3">
+    <header class="py-3 border-bottom">
+      <div
+        class="container-fluid d-grid gap-3 align-items-center"
+        style="grid-template-columns: 1fr 2fr"
+      >
+        <a
+          class="d-flex align-items-center col-lg-4 text-decoration-none text-primary"
+          href="#"
+        >
+          <svg class="" width="38" height="38">
+            <use href="/sprite.svg#btstrp"></use>
+          </svg>
+        </a>
+
+        <div class="d-flex align-items-center">
+          <form
+            class="d-flex gap-3 align-items-center w-100 me-3"
+            role="search"
+            name="searchForm"
+          >
+            <input
+              class="form-control"
+              type="search"
+              placeholder="Search..."
+              aria-label="Search"
+              name="searchInput"
+            />
+            <button class="btn btn-primary" type="submit">Search</button>
+          </form>
+
+          <div class="flex-shrink-0 dropdown">
+            <a
+              href="#"
+              class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img
+                src="https://github.com/mdo.png"
+                alt="mdo"
+                width="32"
+                height="32"
+                class="rounded-circle"
+              />
+            </a>
+            <ul class="dropdown-menu text-small shadow" style="">
+              <li><a class="dropdown-item" href="#">New project...</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="#">Sign out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="grid py-4" data-masonry>
+        <div class="grid-sizer"></div>
+        <!-- <div class="grid-item">
+          <img
+            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg"
+          />
+        </div>
+        <div class="grid-item">
+          <img
+            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg"
+          />
+        </div>
+        <div class="grid-item">
+          <img
+            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg"
+          />
+        </div>
+        <div class="grid-item">
+          <img
+            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg"
+          />
+        </div>
+        <div class="grid-item">
+          <img
+            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg"
+          />
+        </div>
+        <div class="grid-item">
+          <img
+            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg"
+          />
+        </div>
+        <div class="grid-item">
+          <img
+            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/contrail.jpg"
+          />
+        </div>
+        <div class="grid-item">
+          <img
+            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/golden-hour.jpg"
+          />
+        </div>
+        <div class="grid-item">
+          <img
+            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/flight-formation.jpg"
+          />
+        </div> -->
+      </div>
+      <button
+        class="btn btn-primary d-none d-block mx-auto"
+        data-load-more
+        type="button"
+      >
+        Load more
+      </button>
+    </main>
+    <script type="module" src="../../js/hw-04/index.js"></script>
+  </body>
 </html>
