@@ -36,7 +36,7 @@ export const createImagesMarkup = data => {
               data-bs-title="Likes: ${likes}"
             >
               <svg class="info-icon" aria-hidden="true" width="20" height="20">
-                <use href="/sprite.svg#likes"></use>
+                <use href="${icons}#likes"></use>
               </svg>
             </button>
             <button
@@ -48,7 +48,7 @@ export const createImagesMarkup = data => {
               data-bs-title="Views: ${views}"
             >
               <svg class="info-icon" aria-hidden="true" width="20" height="20">
-                <use href="/sprite.svg#views"></use>
+                <use href="${icons}#views"></use>
               </svg>
             </button>
             <button
@@ -60,7 +60,7 @@ export const createImagesMarkup = data => {
               data-bs-title="Comments: ${comments}"
             >
               <svg class="info-icon" aria-hidden="true" width="20" height="20">
-                <use href="/sprite.svg#comment"></use>
+                <use href="${icons}#comment"></use>
               </svg>
             </button>
             <button
@@ -72,7 +72,7 @@ export const createImagesMarkup = data => {
               data-bs-title="Downloads: ${downloads}"
             >
               <svg class="info-icon" aria-hidden="true" width="20" height="20">
-                <use href="/sprite.svg#download"></use>
+                <use href="${icons}#download"></use>
               </svg>
             </button>
           </div>
