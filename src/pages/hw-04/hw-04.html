@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,10 +7,12 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body class="pb-3">
-    <header class="py-3 border-bottom">
+    <header
+      class="py-3 border-bottom position-sticky top-0 z-1 bg-body shadow-sm"
+    >
       <div
         class="container-fluid d-grid gap-3 align-items-center"
-        style="grid-template-columns: 1fr 2fr"
+        style="grid-template-columns: 1fr minmax(300px, 2fr) 1fr"
       >
         <a
           class="d-flex align-items-center col-lg-4 text-decoration-none text-primary"
@@ -21,98 +23,109 @@
           </svg>
         </a>
 
-        <div class="d-flex align-items-center">
-          <form
-            class="d-flex gap-3 align-items-center w-100 me-3"
-            role="search"
-            name="searchForm"
-          >
+        <form class="d-flex w-100" role="search" name="searchForm">
+          <div class="input-group">
             <input
               class="form-control"
               type="search"
-              placeholder="Search..."
+              placeholder="Search images..."
               aria-label="Search"
               name="searchInput"
+              aria-describedby="search-button"
             />
-            <button class="btn btn-primary" type="submit">Search</button>
-          </form>
-
-          <div class="flex-shrink-0 dropdown">
-            <a
-              href="#"
-              class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
+            <button
+              class="btn btn-primary d-inline-flex align-items-center"
+              style="min-width: 3rem"
+              type="submit"
+              id="search-button"
+              aria-label="Search button"
             >
-              <img
-                src="https://github.com/mdo.png"
-                alt="mdo"
-                width="32"
-                height="32"
-                class="rounded-circle"
-              />
-            </a>
-            <ul class="dropdown-menu text-small shadow" style="">
-              <li><a class="dropdown-item" href="#">New project...</a></li>
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" href="#">Sign out</a></li>
-            </ul>
+              <svg class="" width="20" height="20">
+                <use href="/sprite.svg#search-glass"></use>
+              </svg>
+            </button>
           </div>
+        </form>
+
+        <div class="dropdown" style="justify-self: end">
+          <button
+            class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center"
+            id="bd-theme"
+            type="button"
+            aria-expanded="false"
+            data-bs-toggle="dropdown"
+            data-bs-display="static"
+            aria-label="Toggle theme (light)"
+          >
+            <svg class="my-1 theme-icon-active" width="16" height="16">
+              <use href="/sprite.svg#sun-fill"></use>
+            </svg>
+            <span class="d-lg-none ms-2" id="bd-theme-text"></span>
+          </button>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="bd-theme-text"
+          >
+            <li>
+              <button
+                type="button"
+                class="dropdown-item d-flex align-items-center active"
+                data-bs-theme-value="light"
+                aria-pressed="true"
+              >
+                <svg class="me-2 opacity-50" width="16" height="16">
+                  <use href="/sprite.svg#sun-fill"></use>
+                </svg>
+                Light
+                <svg class="ms-auto d-none checked-icon" width="16" height="16">
+                  <use href="/sprite.svg#check2"></use>
+                </svg>
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                class="dropdown-item d-flex align-items-center"
+                data-bs-theme-value="dark"
+                aria-pressed="false"
+              >
+                <svg class="me-2 opacity-50" width="16" height="16">
+                  <use href="/sprite.svg#moon-stars-fill"></use>
+                </svg>
+                Dark
+                <svg class="ms-auto d-none checked-icon" width="16" height="16">
+                  <use href="/sprite.svg#check2"></use>
+                </svg>
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                class="dropdown-item d-flex align-items-center"
+                data-bs-theme-value="auto"
+                aria-pressed="false"
+              >
+                <svg class="me-2 opacity-50" width="16" height="16">
+                  <use href="/sprite.svg#circle-half"></use>
+                </svg>
+                Auto
+                <svg class="ms-auto d-none checked-icon" width="16" height="16">
+                  <use href="/sprite.svg#check2"></use>
+                </svg>
+              </button>
+            </li>
+          </ul>
         </div>
+
+        <div
+          class="toast-container py-2 top-100 end-0"
+          id="toastContainer"
+        ></div>
       </div>
     </header>
 
-    <main>
-      <div class="grid py-4" data-masonry>
-        <div class="grid-sizer"></div>
-        <!-- <div class="grid-item">
-          <img
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg"
-          />
-        </div>
-        <div class="grid-item">
-          <img
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg"
-          />
-        </div>
-        <div class="grid-item">
-          <img
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg"
-          />
-        </div>
-        <div class="grid-item">
-          <img
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg"
-          />
-        </div>
-        <div class="grid-item">
-          <img
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg"
-          />
-        </div>
-        <div class="grid-item">
-          <img
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg"
-          />
-        </div>
-        <div class="grid-item">
-          <img
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/contrail.jpg"
-          />
-        </div>
-        <div class="grid-item">
-          <img
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/golden-hour.jpg"
-          />
-        </div>
-        <div class="grid-item">
-          <img
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/flight-formation.jpg"
-          />
-        </div> -->
-      </div>
+    <main class="container position-relative">
+      <div class="grid py-4" data-gallery></div>
       <button
         class="btn btn-primary d-none d-block mx-auto"
         data-load-more
@@ -121,6 +134,7 @@
         Load more
       </button>
     </main>
+
     <script type="module" src="../../js/hw-04/index.js"></script>
   </body>
 </html>
