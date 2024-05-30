@@ -7,6 +7,19 @@ body {
   border-color: rgb(255, 181, 16);
   box-shadow: 0 0 0 0.25rem rgba(255, 181, 16, 0.25);
 }
+#searchInput:not(:placeholder-shown):required:invalid {
+  border-color: rgb(229, 13, 13);
+  box-shadow: 0 0 0 0.25rem rgba(229, 13, 13, 0.25);
+}
+.error-msg {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(110%);
+}
+#searchInput:not(:placeholder-shown):required:invalid + .error-msg {
+  display: block;
+}
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));

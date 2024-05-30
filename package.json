@@ -1,20 +1,25 @@
 {
   "name": "goit-advanced-js",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build --base=/goit-advancedjs/",
     "preview": "vite preview"
   },
-  "devDependencies": {
-    "glob": "^8.1.0",
-    "sass": "^1.77.2",
-    "vite": "^4.5.3"
-  },
   "author": "YK <yaroslavkosytsia@gmail.com>",
   "license": "ISC",
+  "types": "./dist/index.d.ts",
+  "devDependencies": {
+    "@types/jsdom": "^21.1.6",
+    "@types/node": "^20.11.5",
+    "glob": "^8.1.0",
+    "sass": "^1.77.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "vite": "^4.5.3"
+  },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "@vimeo/player": "^2.23.0",

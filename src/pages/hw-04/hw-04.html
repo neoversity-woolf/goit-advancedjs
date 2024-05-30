@@ -8,7 +8,7 @@
   </head>
   <body class="pb-3">
     <header
-      class="py-3 border-bottom position-sticky top-0 z-1 bg-body shadow-sm"
+      class="py-4 border-bottom position-sticky top-0 z-1 bg-body shadow-sm"
     >
       <div
         class="container-fluid d-grid gap-3 align-items-center"
@@ -16,7 +16,8 @@
       >
         <a
           class="d-flex align-items-center col-lg-4 text-decoration-none text-primary"
-          href="#"
+          href="../../index.html"
+          title="Back to home page"
         >
           <svg class="" width="38" height="38">
             <use href="/sprite.svg#btstrp"></use>
@@ -24,7 +25,7 @@
         </a>
 
         <form class="d-flex w-100" role="search" name="searchForm">
-          <div class="input-group">
+          <div class="input-group position-relative">
             <input
               class="form-control"
               type="search"
@@ -32,7 +33,13 @@
               aria-label="Search"
               name="searchInput"
               aria-describedby="search-button"
+              required
+              minlength="2"
+              id="searchInput"
             />
+            <span class="invalid-feedback error-msg">
+              Please provide a valid search (min 2 char)
+            </span>
             <button
               class="btn btn-primary d-inline-flex align-items-center"
               style="min-width: 3rem"

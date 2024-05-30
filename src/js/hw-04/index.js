@@ -22,10 +22,7 @@ const queryParams = {
   searchQuery: '',
 };
 // Lightbox modal
-const initLightbox = selector => {
-  const lightbox = new SimpleLightbox(selector);
-  lightbox.refresh();
-};
+const lightbox = new SimpleLightbox('[data-gallery] a');
 // Bootstrap tooltips for image inforamtion
 const initTooltip = selector => {
   const tooltipTriggerList = document.querySelectorAll(selector);
@@ -37,14 +34,14 @@ const initTooltip = selector => {
 const onSearchFormSubmit = async event => {
   event.preventDefault();
   const form = event.currentTarget;
-  queryParams.searchQuery = form.elements.searchInput.value;
+  queryParams.searchQuery = form.elements.searchInput.value.trim();
   queryParams.currentPage = 1;
   try {
     refs.container.innerHTML = '';
     refs.loadMoreBtn.classList.add('d-none');
     const { hits, isEndOfCollection } = await fetchImages(queryParams);
     refs.container.insertAdjacentHTML('beforeend', createImagesMarkup(hits));
-    initLightbox('[data-gallery] a');
+    lightbox.refresh();
     initTooltip('[data-bs-toggle="tooltip"]');
 
     if (isEndOfCollection) return;
@@ -61,7 +58,7 @@ const onLoadMoreBtnClick = async event => {
     queryParams.currentPage += 1;
     const { hits, isEndOfCollection } = await fetchImages(queryParams);
     refs.container.insertAdjacentHTML('beforeend', createImagesMarkup(hits));
-    initLightbox('[data-gallery] a');
+    lightbox.refresh();
     initTooltip('[data-bs-toggle="tooltip"]');
     cardsSmoothScroll('[data-gallery]');
     if (isEndOfCollection) {
