@@ -1,0 +1,1 @@
+import"./assets/modulepreload-polyfill-3cfb730f.js";/* empty css                      */const e=o=>o===5||o===6;console.log(e(0));console.log(e(5));console.log(e(6));function n(){return new Promise(o=>{o(["Text",50])})}n().then(o=>{console.log(o)});function s(o){console.log(o)}s({email:"user@mail.com",password:"password123"});
