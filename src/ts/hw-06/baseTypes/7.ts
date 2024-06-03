@@ -20,3 +20,5 @@ const isWeekend = (day: Days): boolean => {
 console.log(isWeekend(Days.Monday)); // false
 console.log(isWeekend(Days.Saturday)); // true
 console.log(isWeekend(Days.Sunday)); // true
+
+export {};
